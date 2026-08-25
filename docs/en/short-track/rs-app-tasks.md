@@ -12,6 +12,7 @@ All assignments must be submitted in the RS App **before the deadline**:
 - You may take the test the number of times specified in the description. The last result will be counted.
 - Also (if specified), you can take the test more than once, but the test score will be reduced by half.
 - The test results will be displayed immediately. They will be added to `Score` after the statistics are updated (at 04:00 GMT+3).
+- After the test deadline has passed, you will be able to review your test results and see which questions were answered incorrectly.
 
 #### Will it be possible to re-submit automatically checked tasks?
 

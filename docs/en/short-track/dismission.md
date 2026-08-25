@@ -4,6 +4,7 @@
 - Violation of [code-of-conduct](../code-of-conduct.md)
 - Publication of materials (article, video, stream, etc) showing the process of solving a task before its deadline
 - Not completing tasks (excluding the RSS-test and CV-task)
+- Repeated warning (receiving 2 warnings)
 - Other reasons (for example: brexit, global financial crisis, etc.)
 
 ### \*Cheating

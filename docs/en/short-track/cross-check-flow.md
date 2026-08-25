@@ -12,8 +12,8 @@ To submit your work, follow these steps:
    - A link to a fully operational and deployed website, or
    - A link to a prepared pull request.
 4. The link can be submitted multiple times; the latest submission will be saved.
-5. Be aware that any work not submitted within the given timeframe will receive a score of zero.
-6. Note that students who do not participate in the cross-checking process will also receive a score of zero.
+5. Be aware that any work not submitted within the given timeframe will receive a score of zero, and for mandatory tasks may lead to student expulsion (excluding the RSS-test and CV-task).
+6. Note that students who do not participate in reviewing assigned works of other students will also receive a score of zero, with potential subsequent expulsion.
 7. The deadline for submission is stated in the schedule.
 
 ### Step #2 Review pairs generation
@@ -174,7 +174,7 @@ Send a direct message to any course admin with the following information:
 
 To file a complaint:
 
-- Send a direct message to any course admin with the following information:
+- Send a direct message to any course moderator or admin with the following information:
   - Your exact GitHub username (not a link).
   - Task name.
   - Score given by the reviewer.
