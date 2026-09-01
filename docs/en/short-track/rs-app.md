@@ -28,7 +28,11 @@ You can register for upcoming courses [here](https://app.rs.school/registry/stud
 ### How can I tell that I have successfully registered for the course?
 
 Go to [RS App](https://app.rs.school/) and check that the course you want is displayed in the list of courses.
-Then open the Score tab. If you see your name in the first row of the table, congratulations, you have successfully registered for the course.
+Then open the Score tab.
+
+If you see your name in the first row of the table, congratulations - you have successfully registered for the course.
+
+The first row is a separate pinned row that shows your own result for convenience. Your name also remains in its regular position in the full list of students. This is expected behavior.
 
 ### How can I find out if I can register for a course that has already started?
 
