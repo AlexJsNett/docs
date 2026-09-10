@@ -294,12 +294,8 @@
     ]
   },
   {
-    "title": "Private Repository",
+    "title": "Repository",
     "items": [
-      {
-        "title": "Private Repository",
-        "link": "private-repository"
-      },
       {
         "title": "Git Convention",
         "link": "git-convention"

@@ -18,7 +18,7 @@ Determining the optimal complexity of the proposed task is one of the most impor
 The task description includes:
 - a clear and detailed description of the appearance and functionality of the expected result. A layout in figma is welcomed. Even better, if the author provides a working application's prototype with minified code
 - technical requirements: which browsers should the application be tested on, which technologies must be used, which are recommended, which are prohibited
-- repository requirements: the repository to perform the task (private or public, school repository or student's personal repository), how to name the repository, development branch, project folder, [commit requirements](https://docs.rs.school/#/git-convention), [pull request requirements](https://docs.rs.school/#/pull-request-review-process?id=Pull-Request-Requirements), where to upload the demo version of the application (gh-pages are suitable for public repositories, netlify.com for private repositories)
+- repository requirements: how to name the repository, development branch, project folder, [commit requirements](https://docs.rs.school/#/git-convention), [pull request requirements](https://docs.rs.school/#/pull-request-review-process?id=Pull-Request-Requirements), where to upload the demo version of the application (gh-pages are suitable for public repositories, netlify.com for private repositories)
 - evaluation criteria, they will be mentioned below
 - links to additional materials that will be useful for students when they complete the task
 - link to the document with questions about the task: an editable Google spreadsheet created by the author of the task, where students can ask questions for the author to answer
