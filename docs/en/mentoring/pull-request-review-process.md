@@ -2,8 +2,8 @@
 
 1. A student completes an assignment in a school's private repository (unless otherwise specified in a task description).
 2. The student creates and submits a Pull Request before the deadline.
-   - The PR rules are specified [below](https://docs.rs.school/#/en/pull-request-review-process?id=pull-request-description-must-contain-the-following)
-   - Penalties for deadline violations are listed [below](https://docs.rs.school/#/en/pull-request-review-process?id=deadlines-for-students)
+   - The PR rules are specified [below](#pull-request-description-must-contain-the-following)
+   - Penalties for deadline violations are listed [below](#deadlines-for-students)
 3. Until the final grade is given by the mentor, the student can continue to implement remaining features
 4. The mentor checks the PR, leaves his comments and recommendations on the quality of the code (copy-paste, magic numbers, project structure, etc.) and the implemented functionality. Leaves a comment with a preliminary score.
    - The score is set by the mentor based on the assessment criteria specified for each task
@@ -20,6 +20,11 @@
 
 Pull Request is a place to discuss contributor's code. It should not be a monologue but rather a fruitful collaboration between a contributor and a reviewer. Stay professional, respect each other's time and efforts.
 
+### Pull Request must not contain the following:
+
+- Commented code
+- Leftover and/or irrelevant files, auto-generated code, node_modules, etc.
+
 ### Pull Request description must contain the following:
 
 1. Task URL.
@@ -30,7 +35,7 @@ Pull Request is a place to discuss contributor's code. It should not be a monolo
    - other static assets storage with web serving capabilities, like [S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
    - serverless or self-hosted solutions for your API (make sure URL is public and accessible by other people)
    - naming scheme: GitHub account name - Task name.
-4. Submittion Date / Deadline Date.
+4. Submission Date / Deadline Date.
 5. Your self-check of Task's completion result and opinion on the achieved Score.
 
 ### Description Example
@@ -38,7 +43,7 @@ Pull Request is a place to discuss contributor's code. It should not be a monolo
 ```
 1. Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md
 2. Screenshot:
-   ![](https://docs.rs.school/images/fancy-weather.png)
+   ![](https://raw.githubusercontent.com/rolling-scopes-school/docs/master/docs/images/fancy-weather.png)
 3. Deployment: https://chakapega-fancy-weather.netlify.com/
 4. Done 28.05.2020 / deadline 31.05.2020
 5. Score: 220 / 300
@@ -51,11 +56,6 @@ Pull Request is a place to discuss contributor's code. It should not be a monolo
   - [±] clock, refreshed each second (5/10)
  ...
 ```
-
-### Pull Request must not contain the following:
-
-- Commented code
-- Leftover and/or irrelevant files, auto-generated code, node_modules, etc.
 
 ## Code Review Process Recommendations
 
@@ -70,112 +70,45 @@ This approach solves several problems that are usually encountered when reviewin
   - It is often quite difficult to carefully look into the entire code of the task in one go and clarify all the concepts that the student missed within the large code base.
   - It is often much easier to find time for 2 smaller reviews, although in general, the total time may be increased.
 - Catching architectural mishaps at the very beginning, which lead to "expensive", in terms of refactoring, problems
-- Learn how to work with Git and Github
+- Learn how to work with Git and GitHub
 - Motivation to meet the deadline
 
 ## Code Review Process Example
 
-1. Code Review process can be started with a check of the PR format, the naming of the commits, and a sufficient number of them.
+1. **PR preparation check** - PR description, commits, and deployment.
 
-- [Commit Requirements](https://docs.rs.school/#/en/git-convention)
-- [Pull Request Requirements](https://docs.rs.school/#/en/pull-request-review-process?id=pull-request-description-must-contain-the-following)
+- [Commit Requirements](https://rs.school/docs/git-convention)
+- [Pull Request Requirements](#pull-request-requirements-pr)
 
-2. Next, clone the repository, install dependencies, and check if the project is buildable / runnable.
+After checking the PR description, commit names, and commit history, clone the student's repository and install the dependencies.
 
-3. If the requirements included the use of a linter or tests, check for the presence of a prepared scripts to start, lint and/or test the app and whether errors occur after running them.
+2. **Basic checks** - linter, tests, and build.
 
-4. It is worth checking the overall functionality of the application, whether there are no errors in the console, whether requests are processed correctly, etc.
+- If the task requires a linter or tests, the corresponding scripts are configured and all required checks pass
+- Lint rules are not disabled without a clear reason; discuss whether each exception is necessary
+- The project builds and runs without errors
+- There are no `console.log` statements in production code
+- There is no commented-out code
 
-At this stage, you can pay attention to possible UI / UX problems:
+3. **Functionality check** - application behavior.
 
-- whether clickable elements are highlighted
-- whether there is an overlap of elements / text
-- possible recommendations for improving visual appearance of the app if there was no clearly defined design in the task
+- All core features work correctly
+- There are no errors in the console
+- Requests are processed correctly
+- The implemented functionality matches the task requirements
 
-5. Now's the time to review the code itself. Here are some potential code quality improvement points:
+4. **Code review** - code quality and architecture.
 
-### General
+Use the [mentor-resources reference](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/index.md) for explanations and examples of clean code practices (available in Russian).
 
-- DRY - if there are repeating pieces of code, it's better to put them in a separate class/function
-- KISS - try to keep the structure simple and clear
-- comments should explain the purpose of the code instead of describe it
+5. **UI/UX check** - design and user experience.
 
-```
-Bad
+- The application matches the provided design, if any
+- The layout is responsive, if required
+- Clickable elements are visually distinguishable
+- Interactive elements provide feedback, such as hover and active states
 
-# method to find min value
-function findMinValue() {...}
-```
-
-- no code formatter used, which helps maintain the same code style across the team (e.g. prettier)
-- it is better not to use abbreviations for naming variables / classes / functions, this will improve overall understanding and readability of the code
-
-### HTML
-
-- no alt attribute for the `img` tag, it is also recommended to set the height and width, which is useful when the image does not load for some reason
-- lack or insufficient semantics
-- redundant blocks
-
-```html
-<div class="container">
-  <div class="wrapper">
-    <ul>
-      ...
-    </ul>
-  </div>
-</div>
-```
-
-- use class names in kebab-case for HTML
-
-```html
-<!-- BAD -->
-<div class="containerWrapper"></div>
-```
-
-```html
-<!-- GOOD -->
-<div class="container-wrapper"></div>
-```
-
-- if you need to make some kind of heading in the upper case in your HTML, it's better to do it with CSS
-- using inline styles or JS code in HTML, i.e. in the form of an `onclick` function, is also a mistake
-
-### CSS
-
-- try to apply dynamic styles with CSS classes, not with the use of JS
-- try to write styles with a small degree of nesting (no more than 2x) - this simplifies maintenance and eases refactoring of the style if necessary
-- it is preferable to use the same units of measurement (`px`,`rem` or `em`) which makes it easier to introduce changes (when using preprocessors, you can write a function that will convert `px` to `rem`)
-
-### JS
-
-- use event delegation if applicable
-- use parentheses for `if else / for` blocks
-- magic numbers and magic strings - try to put them into separate constants
-- use enums objects
-
-```js
-const KEY_CODES = {
-	Space: 32,
-	Enter: 13,
-	...
-}
-
-if (key === KEY_CODES.Enter) {
-  ...
-}
-```
-
-- file size (large files are difficult to read and maintain, if the file is more than 200 - 400 lines, then you should think about splitting)
-- monitor the degree of nesting of conditional blocks, blocks with a nesting level of 3 or more are difficult to read and perceive, perhaps they can be moved into a separate function
-- try to use pure functions (they are better tested)
-- use named arguments if the number of arguments is 3 or more, this allows you not to follow the order and when reading the code it is more clear what is passed to the function
-
-```js
-function insertElement({ parent, tag, class, value }){...}
-
-insertElement({ parent: parentElement, tag: 'p', class: 'class', value: 'Some value' })
-```
+The [clean code checklist](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/Check-List.md) can be used for self-checking and discussing code quality (available in Russian).
 
 ### Deadlines for Students
 
@@ -193,4 +126,7 @@ Mentor is expected to review student's work within one or two weeks of the stude
 
 ## Recommended Links
 
-- [How to write the perfect Pull Request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request)
+- [Pull Request Requirements](#pull-request-requirements-pr)
+- [Commit Requirements](https://rs.school/docs/git-convention)
+- [Clean Code Practices - all materials](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/index.md) (in Russian)
+- [Clean Code Checklist](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/Check-List.md) (in Russian)
