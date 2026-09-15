@@ -1,9 +1,9 @@
 ## Проверка задания ментором 
-1. Студент выполняет задание в приватном репозитории.
+1. Студент выполняет задание в приватном репозитории школы, если иное не указано в описании задания.
 2. Студент создает и оформляет Pull Request до дедлайна.
-    - [Правила оформления PR](https://rs.school/docs/en/pull-request-review-process#pull-request-requirements-pr)
-    - [Требования к коммитам](https://rs.school/docs/en/git-convention)
-    - [Штрафы за нарушения дедлайна](https://rs.school/docs/en/pull-request-review-process#deadlines-for-students)
+    - [Правила оформления PR](#требования-к-pull-request-pr)
+    - [Требования к коммитам](https://rs.school/ru/docs/git-convention)
+    - [Штрафы за нарушения дедлайна](#дедлайны-для-студентов)
 3. До выставления финальной оценки ментором, студент может продолжать реализовывать фичи. 
 4. Ментор проверяет PR, оставляет свои замечания и рекомендации по качеству кода и реализованной функциональности. Указывает предварительную оценку в комментарии.
     - Оценка выставляется ментором на основании критериев оценки указанных для каждого задания
@@ -26,10 +26,12 @@ Pull Request - это место для обсуждения кода. Он не
 ### Описание Pull Request должно содержать следующую информацию:
 1. Ссылка на задание.
 2. Скриншот результата выполнения задания (страница созданного приложения или сайта). Скриншот добавляем в Pull Request в виде изображения. Для добавления в Pull Request изображения, его можно просто перетянуть с компьютера.
-3. Ссылка на задеплоенную версию вашего приложения или сайта. Для деплоя можно использовать:
+3. Ссылка на задеплоенную версию приложения: для frontend - адрес сайта, для backend - адрес API. Для деплоя можно использовать:
     - при наличии приватного репозитория школы - gh-pages
-    - при отсутствии приватного репозитория школы или при невозможности разместить приложение на `gh-pages` приватного репозитория школы, приложение можно разместить на [netlify.com](https://app.netlify.com/drop), либо на другом подобном хостинге.    
-    - для демоверсий, размещённых на netlify, название сайта даётся по схеме: имя гитхаб аккаунта - название таска.  
+    - при отсутствии приватного репозитория школы или при невозможности разместить приложение на `gh-pages` - [netlify.com](https://app.netlify.com/drop) или другой подобный хостинг
+    - хранилище статических файлов с возможностью публикации сайта, например [S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
+    - serverless- или self-hosted-решение для API; адрес должен быть публичным и доступным для проверки
+    - название сайта даётся по схеме: имя GitHub-аккаунта - название задания
 4. Дата сдачи / дата дедлайна.
 5. Ваша самопроверка с предварительной оценкой.
 
@@ -37,7 +39,7 @@ Pull Request - это место для обсуждения кода. Он не
 ```
 1. Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md
 2. Screenshot:
-   ![](https://docs.rs.school/images/fancy-weather.png)
+   ![](https://raw.githubusercontent.com/rolling-scopes-school/docs/master/docs/images/fancy-weather.png)
 3. Deploy: https://chakapega-fancy-weather.netlify.com/
 4. Done 28.05.2020 / deadline 31.05.2020
 5. Score: 220 / 300
@@ -65,14 +67,14 @@ Pull Request - это место для обсуждения кода. Он не
 
 1. **Проверка оформления** - PR, коммиты, deployment. 
 
-- [Правила оформления PR](https://rs.school/docs/en/pull-request-review-process#pull-request-requirements-pr)
-- [Требования к коммитам](https://rs.school/docs/en/git-convention)
+- [Правила оформления PR](#требования-к-pull-request-pr)
+- [Требования к коммитам](https://rs.school/ru/docs/git-convention)
 
 После проверки оформления PR, а также именования коммитов и достаточного их количества можно приступать к проверке функциональности приложения. Для этого можно склонировать репозиторий студента и установить зависимости. 
 
-2. **Базовые проверки** - линтер, сборка
+2. **Базовые проверки** - линтер, тесты, сборка
 
-- Линтер настроен согласно требованиям задания, все проверки проходят без ошибок
+- Если задание требует линтер или тесты, соответствующие скрипты настроены и все обязательные проверки проходят без ошибок
 - Нет выключенных правил линта, попытаться выяснить для чего это было сделано и можно ли этого избежать.
 - Проект собирается без ошибок
 - Нет console.log в production коде
@@ -87,7 +89,7 @@ Pull Request - это место для обсуждения кода. Он не
 
 4. **Code review** - качество кода, архитектура
 
-Для проверки качества кода можно использовать матреиал из репозитория [mentor-resources](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/index.md#%D1%87%D0%B0%D1%81%D1%82%D1%8C-1-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D1%87%D0%B8%D1%81%D1%82%D0%BE%D0%B3%D0%BE-%D0%BA%D0%BE%D0%B4%D0%B0). Часть этих рекомендаций должны быть включены в конфигурацию Eslint и Typescript согласно требованиям задания. 
+Для проверки качества кода можно использовать материалы из репозитория [mentor-resources](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/index.md).
 
 5. **UI/UX проверка** - дизайн и пользовательский опыт
 
@@ -96,42 +98,7 @@ Pull Request - это место для обсуждения кода. Он не
 - Кликабельные элементы визуально выделены
 - Обратная связь при взаимодействии (hover, active)
 
-Детально процесс проведения код ревью описан в [checklist](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/checklist.md).
-
-## Инструменты автоматизации проверки
-
-Чтобы сократить время на рутинные проверки и больше сосредоточиться на стратегических вопросах — архитектурных решениях и подходах к задачам — можно использовать инструменты автоматизации. Подробнее об этом можно прочитать в чеклисте [здесь](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/checklist.md#%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8).  
-
-### Bash-скрипт автоматической проверки
-
-**Файл**: [templates/scripts/auto-check.sh](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/scripts/auto-check.sh)
-
-**Подробнее**: [Документация по скрипту](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/scripts/auto-check.md)
-
-### AI агент для комплексного code review
-
-Используйте AI агентов (Claude, ChatGPT и т.п.) для глубокого анализа кода с использованием промпта. Подробно о том, как его использовать для код ревью прочитать в чеклисте [здесь](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/checklist.md#ai-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82).
-
-
-### Рекомендуемый workflow с автоматизацией
-
-Комбинируйте автоматические и ручные проверки для максимальной эффективности:
-
-1. **Автоматическая проверка** (5 мин):
-   - Запустить bash-скрипт: чтобы получить отчет по базовым проверкам или
-   - Используйте AI агент: чтобы получить полный отчет по код ревью
-
-2. **Ручная проверка** (10-15 мин):
-    - Pull Request оформлен согласно требованиям, Deploy URL работает
-    - Проверить архитектуру и бизнес-логику
-    - Оценить дизайн и UI/UX
-    - Протестировать функциональность
-
-3. **Финальный комментарий** (5 мин):
-   - Собрать результаты всех проверок
-   - Использовать [шаблон комментария](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/checklist.md#%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D1%8F-%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D1%80%D0%B0)
-
-**Экономия времени**: базовые проверки займут 1-2 минуты вместо 10-15, ментор сможет сосредоточиться на важных аспектах.
+Для самопроверки и обсуждения качества кода можно использовать [чеклист](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/Check-List.md).
 
 ### Дедлайны для студентов
 - Дедлайны всех тасков указаны в расписании курса.
@@ -146,8 +113,7 @@ Pull Request - это место для обсуждения кода. Он не
 Ожидается, что ментор проверяет работу студента в течении одной-двух недель после сдачи работы студентом. Но чем раньше, тем лучше. Даты дедлайнов для студентов указаны в расписании.
 
 ## Рекомендуемые ссылки
-- [Правила оформления Pull Request](https://rs.school/docs/en/pull-request-review-process#pull-request-requirements-pr)
-- [Требования к коммитам](https://rs.school/docs/en/git-convention)
+- [Правила оформления Pull Request](#требования-к-pull-request-pr)
+- [Требования к коммитам](https://rs.school/ru/docs/git-convention)
 - [Clean Code Practices - все материалы](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/index.md)
-- [Общий чеклист для код ревью](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/checklist.md)
-- [ESLint конфигурация](https://github.com/HelgaZhizhka/mentor-resources/blob/master/templates/checklists/eslint.md)
+- [Чеклист качества кода](https://github.com/HelgaZhizhka/mentor-resources/blob/master/clean-code/Check-List.md)
