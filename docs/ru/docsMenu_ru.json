@@ -54,12 +54,8 @@
     ]
   },
   {
-    "title": "Приватный репозиторий",
+    "title": "Репозиторий",
     "items": [
-      {
-        "title": "Приватный репозиторий",
-        "link": "private-repository"
-      },
       {
         "title": "Требования к коммитам",
         "link": "git-convention"
